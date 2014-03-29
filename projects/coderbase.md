@@ -3,437 +3,403 @@ title: Coderbase
 permalink: coderbase
 description: A portfolio & blogging platform for developers powered by git and markdown
 homepage: http://coderbase.io
-languages: [ruby]
-visible: false
-order: 
-# Github Flavored Markdown reference
-# https://help.github.com/articles/github-flavored-markdown
+languages: [ruby, rails]
+visible: true
+order: 1
 ---
 
+*Note: This project is very much a work in progress. This portfolio was created on, and is hosted by, Coderbase.io.*
 
-![](https://www.codeship.io/projects/474c1930-91b1-0131-50a5-6a3467d9a0af/status)
-<<<<<<< HEAD
-=======
+Coderbase.io is a portfolio platform for developers. It seeks to create the ideal online identity for developers. It combines blog-style posts, projects that contain annotations -- such as what you are reading right now -- and basic pages.
 
->>>>>>> staging
-# Git Branching Strategy
-* Feature branches: create a new branch for every little feature: f-feature-name
+One of the most interesting parts about it is that everything is driven through Markdown, YAML, and Git. There is no admin UI through the browser. When a user signs up through GitHub, a new repository is created on his/her GitHub account that contains all of the configurations and content.
 
-# Database
-1. Install Postgres using Heroku's app: http://postgresapp.com/
-2. Run `PATH="/Applications/Postgres93.app/Contents/MacOS/bin:$PATH"` in terminal
-
-# Coding Standards
-## Ruby
-- One class per file
-- 2 spaces per tab and spaces as tabs (Sublime setting)
-- For comments in HAML views, use Ruby so the comments don't show in front-end (unless they need to)
-- Short, concise methods favoring more methods over method verbosity
-- Most logic should not go in models; models should be skinny. `/lib` should contain classes for logic stuff
-## Javascript
-- Adam?
-
-# Staging
-## Setup
-- run `heroku git:remote -a staging-coderbase -r staging` to add capability for `git push staging master`
-
-# Dev Server
- - You must run on localhost and not 0.0.0.0 because only localhost will work with Github's callback
- - run `forward 3000` for GitHub callbacks
-
-# Decisions to make
-* We should make a team/about page giving it a personal feel. maybe part of the homepage?
-* When to launch on HN? Balance best time of day/week with our availability.
-* Add tooltips or something around our madlibs to show how to modify (while logged in)
-* What's our hash tag? #coderbase ?
-* How do we all see each other's responses to emails to users? BCC: team@ 
-* team@ might not be forwarding correctly?
-
-# HN Launch plans
-* Launch on Product Hub first
-* Turn on extra dyno to prevent app spinup delay
-* Upgrade database to eliminate 10k row limit
-* Coordinated email to friends/colleaguse asking for upvotes (with specific instructions to prevent voting ring)
-* Coordinated tweets/emails to semi-famous developers asking to try us out
-* Commenting strategy to questions on HN
-
-# Landing Page Ideas
-* Team photos with links to each of our coderbase profiles
-* Why we did this? Tell the story
-* Login button
-* What happens when a user goes to the homepage while logged in?
-* If we show laptop on landing page, we should show iPhone on responsive iPhone design (or detect user-agent)
+See below for further details and pictures. **There are lots of code samples demonstrating how this platform works.**
 
 
-# Feedback
-- Custom styling in YAML or or css file
-- custom domain
-- searchability
-- following other people
-- is this searchable?
-- robots.txt
-noah:
-- multiple tweets
-- tweet if #cbio hashtag
-- hashtag tweet creates a postuse the commit message.
-- list of posts vs list of 
-- easter egg: curation
-- #hashtag in a commit shows the diff, and commit message
-acccraze:
-- confused between projects and posts
-- overall, positive, thoguht it was very clever
-- currently runs on wordpress, already had it installed so just kep tiusing it
-- hostgator
-- wants customd domain
-- would switch over right away
-- only blogs once a semester, because it takes too much time. 
-- would send out current website accraze.info
-- hate designing, something read to go and intuitive, he's sold on it
-Wes
-- doesn't make sense to have prepopulated empty projects
-- what does the right sidebar do
-- Why isn't my fork visible
-- How to I change visibility
-- needs tour to explain process
+# Motivation
 
-to be main site
-- here's who I am
-- here's my work experience
-- introduction
-- doesn't feel like an identity yet
-- madlibs not enough to describe myself
-- separate projects and blog from identity
+Hiring extremely talented software engineers is a significant challenge for tech companies today. More than any other factor, the people at a company make or break its success. For this reason, managers and recruiters go to great lengths to determine a job candidate's abilities and qualifications before making a decision. Time and effort are wasted for the employer as well as the engineer.
 
-- ABOUTME
-- write an opening statement, opportunities I'm looking for.
-- Languages
-  - we pulled this from 
+To attack this problem my team and I wanted to create a platform that allowed developers to show their proficiency in programming, their personality, and their ability to solve problems as well as gain exposure through writing.
 
-- no landing page, just shows a post.
-- time.
-
-BIGGEST THING
-  separation of who I am and then my blog
-NICE TO HAVE
-  How do I separate myself?
-  Design?
+We hope to replace a resume, blog, and GitHub profile with one single portfolio accessible by a custom domain name: (eg jeffrwells.com). The portfolio is well designed and minimally featured to make it easier to use and more attractive than any other service or custom-built solution.
 
 
-- would use the service because how easy to
+# How it works
 
-- personalization
+Coderbase.io is built for developers, and is designed to work in tune with a developer's typical workflow. We recognized early on that the context switch required -- switching from a text editor to the browser, logging in, writing a post, and publishing it all in one sitting -- would be extremely prohibitive. We created a simpler workflow using Git and Markdown.
 
-- wants a platform easier than what he has
-  ghost was hard to set up
-  he writes posts in markdown, then converts to html, then publishes on wordpress
+When a user signs up through his/her GitHub account, a new repository called *coderbase.io* is created that hosts all of the portfolio's posts, projects, and configurations in markdown and YAML files. When the repository is modified and pushed to GitHub, a commit hook sends the changes over to us and we parse it and update the portfolio accordingly.
 
+![Newly created GitHub Repository](https://raw.github.com/jeffrwells/coderbase.io/master/projects/photos/coderbase/coderbase-github-repo.png)
 
+These files can now be edited any way that our users want. For quick changes, using the GitHub editor is often easiest. Users can also pull down the repository to edit it in their text editor or a special markdown program. Here you can see me writing these words (so meta) in Atom:
 
-
-Feedback round 2:
-
-Joe M:
-- loves new format
-- aboutme page is useful
-- wants to customize homepage with homepage: key
-- a few options like hobbies etc would be useful on aboutme sidebar
-- applications with custom permalinks would be really really cool
-- view counter or analytics, email or show?
-- consider paying for - $5 if all the features, if the max. $2 is good.
-- accept bitcoins
-- once it has some views/analytics, full featured.
-- once it has some views, do the domain switch.
-
-TODO
-================================================================================
-
-All
-- [ ] Compile list of semi-famous devs we want to tweet/email asking to try us out
-- [ ] Compile list of friends to email for HN voting
-- [ ] Parameterize project titles to make them URL friendly
+![Editing in Atom](https://raw.github.com/jeffrwells/coderbase.io/master/projects/photos/coderbase/editing-in-atom.png)
 
 
+Using markdown and a custom repository has huge advantages. You can see in the photo above that I created a photos folder to host my photos. Since we only parse the files that are properly named (.md files in posts or projects folder, _config.yml, etc.), I can put photos, notes, or other files in the repository if I would like.
 
-Bugs
-----------------------
-- [ ] routes don't work if period in permalink
-- [ ] What to do if no name from github?
+As a developer, it is very easy for me to paste in code I want to show off. For example, here is how this file is formatted with YAMl at the top of this file:  
 
+    ---
+    title: Coderbase
+    permalink: coderbase
+    description: A portfolio & blogging platform for developers powered by git and markdown
+    homepage: http://coderbase.io
+    languages: [ruby, rails]
+    visible: true
+    order: 1
+    ---
 
-Tasks from 2/16
---------------------------------------------------------------------------------
-- [x] Put a char limit on description in project box in middle column
-  - Is there any reasonable way to do this? Maybe just add comment in config file
-  - No need for this now, project card can just expand
+Settings are saved in a single YAML file: `_config.yml`. Here is mine, pasted in:
 
-- [ ] Recommendation algorithm for next post based on language, project and recency
+    # Your name to be displayed on your profile
 
-- [ ] Hosting site.
+    Name: Jeff Wells
 
-Jeff
---------------------------------------------------------------------------------
-- [x] Twitter Setup
-- [x] When should we fetch most recent tweet. (asynchronously)
-- [x] Hipchat
-- [x] Post list view
-- [x] Redo templating
-- [x] Modal functionality
-- [x] Clean up db records
-- [x] Project post needs separate url, no redirect?
-- [v2] Conflict warning (!)
-- [x] Responsive basics, mobile
-- [x] Seed only one sample post.
-- [x] Convert . to - in project permalink, like davis.js
-- [x] conflicts model
-- [x] What to do with posts under projects
-    - [x] regardless, don't break, that's not the functionality we want
-    - [x] secondly, don't have the seed post be under a hidden project
-- [x] Add twitter back to config
-- [x] Change languages to read array, not comma separated string
-- [x] Fix twitter handle in config to work with and w/o @ symbol
-- [x] Make mad libs start blank, except for the auto-filled in company
-- [x] Remove gists from access on auth page
-- [x] Move GitHub app to new coderbase organization on GitHub
-- [x] On progress page after sign up authentication, update text (use terms like profile, not repo)
-- [x] Add edit button on hover to madlibs to show it is clickable.
-- [x] Remove "projects" and "posts" icon/bar in the middle column. Project cards should go to top
-- [x] Add new link for a new post file
-- [x] Change routes to new structure: 
-    /username, 
-    /username/project-name
-    /username/root-post-title
-    /username/project-name/post-title-with-project 
-    /username/post-title-with-project => (303) /username/project/post-title-with-project
-- [x] Help icon should bring up get started modal
-- [x] In project list, show project title (if exists) or repo title (if project title doesn't exist)
-- [x] Stack top right actions vertically, 2 buttons: list view (replaces /writing) & menu. Menu has login/logout, help, chat/email, and help/tour modal. 
-- [x] Add 'draft:true' still visible if you are logged in?
+    # The following three options specify
+    # a madlibs-style description of yourself.
+    # I ____________  at ____________________.
+    # I like ________________________________.
 
-- [x] error output to post.
+    I: build things that make a difference
+    at: @azmicrocredit, @coderbaseio
+    I like: espresso, IPAs, cooking, fitness
 
-- [x] nil values for twitter, etc.
+    # Add your twitter handle to display your most
+    # recent tweet and link to your twitter account.
+    # Your twitter account is the only contact information
+    # visible to the public.
 
-- [x] Clean up route constraints?
-- [x] remove conflict modal
-- [x] Logout
-- [x] Fix the YAML errors/markdown preview/notification problem
-  - [x] Make sure post still updates if YAML fails. Figure out yaml failures. 
-  - [x] Add markdown documentation. Code fences problem
-  - [x] Look into YAML options
-  - [x] Add syntax errors to the post with comments? (won't update local)
-  - [x] Add syntax errors to user config?? maybe email. - we can just email them, will show up on airbrake.
-- [ ] spaces in folder names should be permalinked.
-- [x] Style Olark
-- [ ] Test multiple file additions and deletions in Github hook controller
-- [ ] Set up customer.io with written automated welcome emails
-- [x] long titles on flyout list need indent or icon or something
-- [x] Flyout list does not scroll
-- [ ] fix adam's dev
-- [x] Ajax project loads.
-- [ ] Make the social sharing buttons work
-- [ ] Order
+    Twitter: @jeffrwells
+
+    # Enter your Google+ id number to add an author meta tag to your posts.
+    # Why? It allows Google to put your Google+ photo next to search results,
+    # and generally ranks your posts higher on Google.
+    # https://plus.google.com/authorship
+
+    # Make sure to log in to Google+ and add 'www.coderbase.io' as a domain that
+    # you contribute to, or it won't work.
+
+    Google+: 112247879367781458018
+
+    # Want your Coderbase.io profile to resolve on your own domain?
+    # Enter your domain here e.g. mydomain.net or www.mydomain.net
+    # and then create a CNAME record with your DNS provider
+    # pointing to coderbase.herokuapp.com
+
+    Domain: jeffrwells.com
+
+    # You have the option to customize what you want to show on your main page.
+    # By default the posts tab is selected. You can input:
+    # 'posts', 'projects', or 'about'
+
+    Homepage: posts
 
 
-Sean
---------------------------------------------------------------------------------
-- [X] Set up domain on heroku
-- [X] Set up segment.io
-- [X] Google Analytics
-- [X] Heap
-- [X] Add Olark
-- [X] Setup Airbrake
-- [X] Buy SSL cert
-- [X] Create GitHub organization for Coderbase
-- [X] Setup SSL
-- [X] Enforce SSL on every request
-- [X] Redirect www to root
-- [X] Enforce Olark: Always on homepage or user's own profile if logged in
-- [X] Reissue SSL cert to make work for both www are root
-- [X] Support custom domain
-- [ ] Create new starter repo structure
-- [ ] Change starter repo name away from coderbase-get-started, different names for development and production.
-- [ ] Setup Staging environment
-- [ ] Write tests for custom domain stuff
-- [ ] Facebook cover like image
-- [ ] Landing page
-- [ ] Set up indicies on db / Speed
-- [ ] Write email to friends asking for upvotes
-- [ ] Email copy for segment.io/customer.io
-New Tasks
-- [ ] Refactor custom domain redirector into class
+Also, everything is under version control without needing a service like PenFlip. Some of our users will use GitHub's pre-existing tools to Pull Request a typo fix for another user. Awesome!
 
-Adam
---------------------------------------------------------------------------------
-- [ ] Responsive magic
-- [X] Design for posts icon
-  - need this anymore??
-- [X] Reposition name & photo so it's higher in the column, more in balanced, and photo is bigger
-- [X] Stack top right actions vertically, 2 buttons: list view (replaces /writing) & menu. Menu has login/logout, help, chat/email, and help/tour modal. 
-- [X] Reposition name & photo so it's higher in the column, more in balanced, and photo is bigger
-   - Jeff: gave you a head start on this but please center/space to your preference.
-- [ ] Hover to show language text as language label
-- [X] Project box design in middle column: Project title, short desc, edit link
-- [X] Add project header with title, longer description, link to repo, Github indicator icon (to indicate it's a Github repo), number of Github stars, website URL, forked icon (if the repo was forked)
-- [X] By default forked, private and collaborator repos are hidden, should this change?
-    - Adam: I think they should be hidden.
-- [ ] Update auth description on GitHub authentication page
-- [X] Reposition tweet and twitter handle to have more balance
-- [ ] Write & design get started modal
-- [ ] Auto-load hello modal on first sign up with a few second delay to show the user what their profile looks like
-- [X] No posts page, No posts menu list
-- [X] Flyout list does not scroll
-- [X] long titles on flyout list need indent or icon or something
+Writing in the text editor in Markdown takes a little getting used to, but is very productive once you get the hang of it. It allows our users to focus on content and showing their abilities -- not getting bogged down with design or setup. All of this was created to work well for developers and make the process of creating a portfolio as smooth as possible.
 
-Launching
-================================================================================
+In general, developers are not excellent designers. For those that are, they are best off making their own portfolio from scratch to showcase their skills in this area. Coderbase allows non-designers to have a well designed portfolio out of the box.
+
+If you haven't already, you need to [try it out](https://coderbase.io). To see your changes instantly deployed from the command line is awesome!
 
 
-Post-RAD testing
---------------------------------------------------------------------------------
+# The Code
 
-- [ ] Twitter Campaign
-- [ ] Javascript/Ruby weekly
+The code for this platform is hosted in a private repository, but here I will highlight some of the code I am proud of.
 
-Scaling concerns if this takes off on Hacker News
---------------------------------------------------------------------------------
+I am going to walk through some of the background details of this platform, from a user signing up to how posts and projects are updated.
 
-* Monitor total database rows. The free Heroku database level limits total rows to 10,000. We just need to upgrade to the next $9/mo level if we max out. It's not an easy transition and requires a few minutes downtime while you switch databases. 
-* average records per user = 1 user + 20 projects + 5 posts = 400 users in 10,000 rows
+## Creating the custom repository
 
+We embed YAML frontmatter in our markdown files like I demonstrated above. When a user signs up we create a new Markdown file for each of his/her GitHub projects. In order to do this, we not only customize the name of the file, but also the values of all of the metadata keys in YAML.
 
-Launch Places
---------------------------------------------------------------------------------
+Ruby's Psych YAML library is good for parsing or writing pure YAML files, but is not built to deal with YAML inside of a string (which this file is until committed). I created a StringyYAML class that uses YAML but treats it like a string. It also escapes everything, and allows for updating the values by passing in a hash.
 
-1. CrunchBase http://www.crunchbase.com/company/blogvio
-2. Angel List https://www.angel.co/blogvio
-3. http://www.betali.st/ 39$ - http://betali.st/startups/blogvio
-4. http://www.romanianstartups.com/
-5. http://www.startupli.st/
-6. http://www.kickoffboost.com/
-7. http://www.geekopedia.me/startupsubmit/
-8. http://www.killerstartups.com/
-9. http://www.startupbird.com/
-10. http://www.ratemystartup.com/
-11. http://www.new-startups.com/
-12. http://www.nextbigwhat.com/
-13. http://www.leanstack.io/
-14. http://www.launchingnext.com/
-15. http://www.startupproject.org/
-16. http://www.erlibird.com/ - they ask 199$.
-17. http://www.thestartuppitch.com/
-18. http://www.startuplift.com/
-19. http://www.feedmyapp.com/submit/ (http://feedmyapp.com/p/a/blogvio/28928)
-20. http://www.siliconallee.com/contact
-21. http://www.f6s.com/
-22. http://www.paggu.com/
-23. http://www.aboutyourstartup.com/ (http://aboutyourstartup.com/?s=blogvio)
-24. http://www.eu-startups.com/directory/
-25. http://www.go2web20.net/
-26. http://www.101bestwebsites.com/
-27. http://www.vator.tv/
-28. http://www.springwise.com/
-29. http://www.techpluto.com
-30. http://www.cee-startups.com/
-31. http://www.appuseful.com/
-32. http://www.startupwizz.com/
-33. http://www.startuptunes.com/ - http://directory.startuptunes.com/b/Blogvio
-34. http://www.venturebeatprofiles.com/
-35. http://www.techhunger.com/
-36. https://www.gust.com - https://gust.com/c/blogvio
-37. http://www.cee-startups.com/
-38. http://www.startupbook.co
-39. http://www.launch.it/contact_form/1/0/contact
-40. http://www.netted.net/contact-us/
-41. http://www.minisprout.com/about/
-42. http://www.makeuseof.com/contact-team/
-43. http://www.venturevillage.eu/about-us/contact/
-44. http://www.appvita.com/
-45. http://www.webdevtwopointzero.com/
-46. http://www.dzineblog.com/
-47. http://www.rev2.org/
-48. http://www.techattitude.com/contact
-49. http://www.eastist.com/
-50. http://www.siliconallee.com/
-51. http://www.en.startit.rs/
-52. http://www.en.startupbusiness.it/
-53. http://www.blogs.wsj.com/tech-europe/
-54. http://www.rudebaguette.com/
-55. http://www.venturevillage.eu/
-56. http://www.en.webrazzi.com/about/
-57. http://www.sociableblog.com/contact-us/
-* http://www.reddit.com/r/startups
-* http://www.reddit.com/r/sideproject
-* http://thenextweb.com/market/
-* http://momb.socio-kybernetics.net/
-* http://headlinr.com/
-* https://www.favsync.com/common/publicTab/v274z25464-3312a1d2...
-* http://www.crunchbase.com/
-* https://www.angel.co/
-* http://www.betali.st/
-* http://www.romanianstartups.com/
-* http://www.startupli.st/
-* http://www.kickoffboost.com/
-* http://www.geekopedia.me/startupsubmit/
-* http://www.killerstartups.com/
-* http://www.startupbird.com/
-* http://www.ratemystartup.com/
-* http://www.new-startups.com/
-* http://www.nextbigwhat.com/
-* http://www.leanstack.io/
-* http://www.launchingnext.com/
-* http://www.startupproject.org/
-* http://www.erlibird.com/
-* http://www.thestartuppitch.com/
-* http://www.startuplift.com/
-* http://www.feedmyapp.com/submit/
-* http://www.siliconallee.com/contact
-* http://www.f6s.com/
-* http://www.paggu.com/
-* http://www.aboutyourstartup.com/
-* http://www.eu-startups.com/directory/
-* http://www.go2web20.net/
-* http://www.101bestwebsites.com/
-* http://www.vator.tv/
-* http://www.springwise.com/
-* http://www.techpluto.com
-* http://www.cee-startups.com/
-* http://www.appuseful.com/
-* http://www.startupwizz.com/
-* http://www.startuptunes.com/
-* http://www.venturebeatprofiles.com/
-* http://www.techhunger.com/
-* https://www.gust.com
-* http://www.cee-startups.com/
-* http://www.startupbook.co
-* http://www.launch.it/contact_form/1/0/contact
-* http://www.netted.net/contact-us/
-* http://www.minisprout.com/about/
-* http://www.makeuseof.com/contact-team/
-* http://www.venturevillage.eu/about-us/contact/
-* http://www.appvita.com/
-* http://www.webdevtwopointzero.com/
-* http://www.dzineblog.com/
-* http://www.rev2.org/
-* http://www.techattitude.com/contact
-* http://www.eastist.com/
-* http://www.siliconallee.com/
-* http://www.en.startit.rs/
-* http://www.en.startupbusiness.it/
-* http://www.blogs.wsj.com/tech-europe/
-* http://www.rudebaguette.com/
-* http://www.venturevillage.eu/
-* http://www.en.webrazzi.com/about/
-* http://www.sociableblog.com/contact-us/
-* http://www.producthunt.co/
+    require 'yaml'
+
+    module StringyYAML
+      include YAML
+
+      class << self
+        # load to convert everything to strings
+        def load(content)
+          # escape double quotes
+          content.gsub! /\"/, '\"'
+          # wrap everything in double quotes
+          content.gsub! /^(.+?): (.*)/, '\1: "\2"'
+          YAML.safe_load(content)
+          # WYSIWYG!
+        end # end load
+
+        def update(string,first,second=nil)
+          str = string.dup
+          if !second.nil?
+            key,value = first, second
+            replace!(str,key,value)
+          else
+            hash = first
+            hash.each_pair do |key,value|
+              replace!(str,key,value)
+            end #end each_pair
+          end #end if/else
+          return str
+        end
+
+        private
+        def replace!(string, key, value)
+          string.gsub!(/^#{key}:(.+)/) do |match|
+            # match: String 'key: old_value'
+            # $1: String 'old_value'
+            match.gsub($1," #{value}" || ' ')
+          end
+        end
+
+      end
+    end
+
+This class has two components.
+
+The first is that we wanted our values to be parseable even if they were misformatted. For example, if a user provided ` summary: ['this','that']`, the value that would be saved would be the string `"['this','that']"`. Natively, YAML would parse this as an array, and would create a `TypeError` in the application when `summary` expected a string. By escaping all double quotes, and then wrapping all values in quotes (as you can see in the RegExp above) we allow our YAML files to have a What You See Is What You Get response, and eliminate errors whenever possible. This avoids errors with single quotes or colons in a value as well, and values starting with symbols such as `Twitter: @jeffrwells` do not need to be wrapped in quotes. Integer, boolean and array values can be converted from a string when necessary.
+
+The second component is the `update` method. This allows us to take a template of the YAML data we will need and update it with the proper values for the user. For example, when a user signs up, we create a project with each repository from GitHub. Here is an excerpt of how we do that:
+
+    class CustomSeedRepoBuilder
+
+      def initialize(user)
+        @user = user
+        @repos = user.repos
+      end
+
+      def files
+        # customize user config...
+
+        # customize repos
+        @repos.each_with_index do |repo, index|
+          @files["#{repo.filename}"] = merge_project(repo)
+        end
+        # ...
+      end
+
+    private
+
+      def merge_project(repo)
+        StringyYAML.update(
+          SeedRepoTemplate.project,
+          {
+            title: repo.title,
+            permalink: repo.permalink,
+            description: repo.description,
+            homepage: repo.homepage,
+            visible: repo.visible,
+            languages: "[#{repo.languages.join(', ')}]"
+          }
+        ) << "\n#{repo.readme_markdown}"
+      end
+
+    end
+
+Calling `files` creates a hash of files, including a project file for each GitHub repository. You can see that we pass the original string that we use as the template with `SeedRepoTemplate.project` -- a class method on SeedRepoTemplate that holds the value -- and update it by passing it a hash with the new values. We then copy exactly the README contents of the repository as a basis for a description like you are reading now. StringyYAML's `update` method also has a three-argument signature for updating a single value.
+
+*As a note, we never expose contents of private repositories. The `repo.visible` value defaults to false for all private or collaborator repos.*
 
 
-Bloggers
----------------------------------------------------
-- hans.io
-- ridingtheclutch.com
-- http://jvns.ca/
-- http://blog.ezliu.com/
-- http://threeifbywhiskey.github.io/
-Potential v2
-==========================================================================
-- [ ] Script to generate posts or projects.
+## Parsing Commits
+
+This is an extensive process but I will show the key files that make this happen.
+
+When the user signs up we create a webhook on their new repository that sends commit data over to the application. When a commit comes in, we have the commit sha and url, along with some other data. Here is the trail it follows as it is processed:
+
+### Holding the commit information
+
+The first thing is to hold this commit information somewhere. The `CommitInformation` class parses the user information out of the commit url and has lazy instantiators for the data we might need (since the data needed will change depending on the commit and files affected). An instance of this class gets passed along as needed.
+
+    class CommitInformation
+
+      COMMIT_URL_REGEX = /.+\/(.+)\/(.+)(\/commit\/|\/git\/)/
+
+      def initialize(commit_sha, commit_url)
+        @commit_sha = commit_sha
+        @commit_url = commit_url
+
+        @commit_url.match COMMIT_URL_REGEX
+        @github_username = $1
+        @github_repo_name = $2
+      end
+
+      def files
+        @files ||= commit_obj.files
+      end
+
+      def conn
+        @conn ||= GithubConnection.new(user)
+      end
+
+      def commit_obj
+        # returns github gem commit object
+        @commit_obj ||= conn.get_commit(@commit_sha)
+      end
+
+      def tree_obj
+        # returns github gem tree object
+        @tree_obj ||= conn.get_tree(tree_sha)
+      end
+
+      def tree_sha
+        @tree_sha ||= commit_obj.commit.tree.sha
+      end
+
+      def user
+        @user ||= User.find_by(username: @github_username)
+      end
+    end
+
+The user can be found from the unique username in the commit url, and GithubConnection is our client for connecting to the Github API.
+
+### Sending the modified file to the right processing class
+
+Now that we can hold the information, we need to parse the files that are changed.
+
+    class CommitHookParser
+
+      def initialize(commit_sha, commit_url)
+        @commit_info = CommitInformation.new(commit_sha,commit_url)
+        self
+      end
+
+      def parse_commit!
+        @commit_info.files.each do |file|
+          match_file_name(file)
+        end
+
+        self
+      end
+
+
+    private
+
+      def match_file_name(file)
+        case file.filename
+          when POST_FILENAME_REGEX
+            PostProcessor.process!(@commit_info, file)
+          when PROJECT_FILENAME_REGEX
+            ProjectProcessor.process!(@commit_info, file)
+          when CONFIG_FILENAME_REGEX
+            ConfigProcessor.process!(@commit_info, file)
+          when ABOUTME_FILENAME_REGEX
+            PageProcessor.process!(@commit_info, file)
+          else
+            # nothing with other kinds of files
+        end
+      end
+
+    end
+
+After instantiating `CommitInformation`, it matches each file to the proper processer based on the file type.
+
+### Processing the commit data
+
+The processors use a template pattern. There is a Processor class from which the separate processor types inherit:
+
+    class Processor
+
+      attr_accessor :file, :commit
+
+      # class method wrapper
+      def self.process!(commit_info, file)
+        processor = self.new(commit_info, file)
+        processor.process_file!
+        processor
+      end
+
+      def initialize(commit_info, file)
+        @file = file
+        @commit = commit_info
+      end
+
+      def process_file!
+
+        case @file.status
+          when 'modified','added'
+            process
+          when 'renamed'
+            rename
+          when 'removed'
+            remove
+        end
+
+      end
+
+      # abstract methods
+      def process; end
+
+      def rename; end
+
+      def remove; end
+
+    end
+
+Here is what a processor looks like:
+
+    class PostProcessor < Processor
+
+      def process
+        post = @commit.user.posts.find_or_initialize_by(filename: @file.filename)
+        post.fetch_and_update!(@file.sha)
+      end
+
+      # rename, remove, etc...
+
+    end
+
+Simple enough. It determines the action based on the git status of the file, and in this case, create or update the post. The responsibility of fetching the blob for the post and parsing it belongs to the `Post` class.
+
+### Fetching and updating
+
+First it uses the sha to fetch and decode the blob file from the GitHub API. `user.github` holds the API client and provides convenient methods like `get_blob`.
+
+    def fetch_and_update!(sha)
+      blob = user.github.get_blob(sha)
+      content = Base64.decode64(blob.body.content)
+      update_from_yaml!(content)
+    end
+
+Then the content is passed to `parse_yaml`, where the values are extracted and returned as a hash. Then the Post model's values are individually updated from the hash. Finally it is saved, and we don't expect any errors.
+
+    def update_from_yaml!(content)
+      data = parse_yaml(content)
+      #parse_yaml sets markdown, markdown is parsed in before_save
+      if data
+        self.title = data['title']
+        self.languages = data['languages'] || []
+        self.published = data['published'] || true
+        # etc
+        save!
+      end
+    end
+
+
+Here is a look at the `parse_yaml` method. It matches the content of the post to our YAML frontmatter regex, and sets the markdown and yaml accordingly. StringyYAML is used to load the values as pure strings in the WYSIWYG method I described above.
+
+    def parse_yaml(content)
+      if content =~ /\A(---\s*\n.*?\n?)^(---\s*$\n?)/m
+        yaml = $1
+        self.markdown = $POSTMATCH
+
+        StringyYAML.load(yaml) rescue psych_syntax_error
+      else
+        self.markdown = ""
+        misformat_error
+      end
+
+    end
+
+But what happens if the post isn't correctly formatted? Since Coderbase.io does not have any administrative tools in the browser, and we cannot display an error in their text editor, we use a unique method. The `psych_syntax_error` and `misformat_error` methods add a code block onto the beginning of the post's content that describes that there was an error and sets the post to a draft. Then when the user goes to look at the post, they see the error displayed at the top. We've considered many options for notifying errors, but at present this is the smoothest. We do not want to create notifications or admin interfaces unless we absolutely have to, as it is very important that this tool works seamlessly into our users' current workflow.
+
+That is pretty much how the parsing works. Obviously there are edge cases and a lot more detail under the surface. All of this was test driven with RSpec. Tests are extremely important for this as it is difficult and slow to QA test and it is something that must work perfectly.
+
+Hopefully these were valuable code samples to see my coding style and abilities!

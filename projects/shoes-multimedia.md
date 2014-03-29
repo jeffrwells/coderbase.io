@@ -2,10 +2,10 @@
 title: Shoes Multimedia
 permalink: shoes-multimedia
 description: Programs created to parse specified multimedia inputs, encode into bitstream and decode. Built in Ruby and Shoes. For CSE408
-homepage: 
+homepage:
 languages: [ruby]
-visible: true
-order: 
+visible: false
+order: 10
 # Github Flavored Markdown reference
 # https://help.github.com/articles/github-flavored-markdown
 ---
@@ -14,7 +14,7 @@ order:
 CSE408 Multimedia Information Systems
 Project 1.
 
-By Jeff Wells and Corey Jallen
+By Jeff Wells
 
 
 To run this program:
