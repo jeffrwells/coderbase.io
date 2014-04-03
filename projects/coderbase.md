@@ -402,4 +402,3 @@ But what happens if the post isn't correctly formatted? Since Coderbase.io does 
 
 That is pretty much how the parsing works. Obviously there are edge cases and a lot more detail under the surface. All of this was test driven with RSpec. Tests are extremely important for this as it is difficult and slow to QA test and it is something that must work perfectly.
 
-Hopefully these were valuable code samples to see my coding style and abilities!
